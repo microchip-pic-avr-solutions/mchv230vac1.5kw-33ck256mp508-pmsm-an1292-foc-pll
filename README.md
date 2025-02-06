@@ -49,7 +49,7 @@ Refer ["Motor Control High Voltage 230VAC-1.5kW Development Board User's Guide"]
 2. Ensure the development board is not powered and it is fully discharged. Verify the LEDs **LD1**(Green) and **LD**4(Red) on Power Factor Correction Board and **LD1**(Green) on Motor Control Inverter Board are not glowing.
 
      <p align="left" >
-     <img  src="images/MCHVnotpowered.JPG" width="600"></p>
+     <img  src="images/MCHVnotpowered.jpg" width="600"></p>
 
 3. Remove the thumb screw and open the top cover of the enclosure. Insert the **dsPIC33CK256MP508 Motor Control DIM** into the DIM Interface **connector J2** on the development board. Make sure the DIM is placed correctly and oriented before going ahead. Close the top cover of the enclosure and secure it with the thumb screw.
 
@@ -64,6 +64,7 @@ Refer ["Motor Control High Voltage 230VAC-1.5kW Development Board User's Guide"]
 
 
 5. Power the development board from a controlled AC source by applying voltage of 220V<sub>ac rms</sub> through IEC connector **connector J1** provided on the PFC board.
+
       <p align="left">
       <img  src="images/mchvpower.JPG" width="600"></p>
  
