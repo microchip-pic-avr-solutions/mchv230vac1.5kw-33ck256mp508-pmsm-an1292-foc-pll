@@ -21,9 +21,9 @@ To clone or download this application firmware on GitHub,
 
 - MPLAB® X IDE **v6.20** 
 - Device Family Pack (DFP): **dsPIC33CK-MP_DFP v1.13.366**
-- Curiosity/Starter Kits Tool Pack : **PKOB4_TP v1.16.1230**
-- MPLAB® XC-DSC Compiler **v3.10**
-- MPLAB® X IDE Plugin: **X2C-Scope v1.6.6** 
+- Curiosity/Starter Kits Tool Pack : **PKOB4_TP v1.17.1379**
+- MPLAB® XC-DSC Compiler **v3.20**
+- MPLAB® X IDE Plugin: **X2C-Scope v1.7.0** 
 > **Note:** </br>
 >The software used for testing the firmware prior to release is listed above. It is recommended to use these or later versions of the tool for building the firmware. All previous versions of Device Family Packs (DFP) and Tool Packs can be downloaded from [Microchip Packs Repository.](https://packs.download.microchip.com/)
 ### 2.3 Hardware Tools Required for the Demonstration
@@ -37,6 +37,7 @@ To clone or download this application firmware on GitHub,
 
 ## 3. HARDWARE SETUP
 This section describes the hardware setup required for the demonstration.
+Refer ["Motor Control High Voltage 230VAC-1.5kW Development Board User's Guide"](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/UserGuides/Motor-Control-High-Voltage-230VAC-1.5kW-Dev-Board-Users-Guide-DS70005576.pdf), before operating the unit.
 > **Note:** </br>
 >In this document, hereinafter the MCHV-230VAC-1.5kW Development Board is referred as **development board**.
 
@@ -45,32 +46,38 @@ This section describes the hardware setup required for the demonstration.
      <p align="left" >
      <img  src="images/Tableopamp.png" width="600"></p>
 
-2. Insert the **dsPIC33CK256MP508 Motor Control DIM** into the DIM Interface **connector J2** on the development board. Make sure the DIM is placed correctly and oriented before going ahead.
+2. Ensure the development board is not powered and it is fully discharged. Verify the LEDs **LD1**(Green) and **LD**4(Red) on Power Factor Correction Board and **LD1**(Green) on Motor Control Inverter Board are not glowing.
+
+     <p align="left" >
+     <img  src="images/MCHVnotpowered.JPG" width="600"></p>
+
+3. Remove the thumb screw and open the top cover of the enclosure. Insert the **dsPIC33CK256MP508 Motor Control DIM** into the DIM Interface **connector J2** on the development board. Make sure the DIM is placed correctly and oriented before going ahead. Close the top cover of the enclosure and secure it with the thumb screw.
 
      <p align="left" >
      <img  src="images/dimconnected.PNG" width="600"></p>
 
 
-3. Connect the 3-phase wires from the motor to **A**, **B**, and **C** (no specific order) of the connector J13(**MOTOR**) on the development board.
+4. Connect the 3-phase wires from the motor to **A**, **B**, and **C** (no specific order) of the connector J13(**MOTOR**) on the development board.
 
      <p align="left" >
       <img  src="images/motorconnection.JPG" width="600"/></p>
 
-4. Power the development board from a controlled AC source by applying voltage of 220V<sub>ac rms</sub> through IEC connector **connector J1** provided on the PFC board.
+
+5. Power the development board from a controlled AC source by applying voltage of 220V<sub>ac rms</sub> through IEC connector **connector J1** provided on the PFC board.
       <p align="left">
       <img  src="images/mchvpower.JPG" width="600"></p>
  
      > **Note:** </br>
      >The Development Board is designed to operate in the 90 to 230V<sub>ac rms</sub> voltage range with a maximum input current of 10A<sub>rms</sub>. In the Input AC voltage range of 90 to 150V<sub>ac rms</sub>, the maximum input power to the Development Board must be derated (<1500W) to maintain the input current through the socket to less than or equal to 10A<sub>rms</sub>.
 
- 5. The development board has an isolated on-board programming tool called the Isolated PKoB4 Daughter Board. To use the isolated on-board programmer, connect a micro-USB cable between the Host PC and connector J11(**PROGRAM**) on the development board.
+ 6. The development board has an isolated on-board programming tool called the Isolated PKoB4 Daughter Board. To use the isolated on-board programmer, connect a micro-USB cable between the Host PC and the connector J11(**PROGRAM**) on the development board.
       <p align="left">
      <img  src="images/mchvProgrammer.JPG" width="600"></p>
 
      > **Note:** </br>
      > Use only **shielded micro-USB** cables intended for data transfer.
 
- 6. To establish serial communication with the host PC, connect a micro-USB cable between the host PC and connector J8(**USB-UART**) on the development board. This interface provides an isolated USB-UART communication.
+ 7. To establish serial communication with the host PC, connect a micro-USB cable between the host PC and the connector J8(**USB-UART**) on the development board. This interface provides an isolated USB-UART communication.
       <p align="left">
       <img  src="images/usbUart.JPG" width="600"/></p>
 
@@ -139,7 +146,7 @@ Follow the below instructions, step by step, to set up and run the motor control
      - Select the **Connected Hardware Tool** to be used for programming and debugging. 
      - Select the specific Device Family Pack (DFP) from the available list of **Packs.** In this case, **dsPIC33CK-MP_DFP 1.13.366** is selected. 
      - Select the specific **Compiler Toolchain** from the available list of **XC-DSC** compilers. 
-     In this case, **XC-DSC(v3.10)** is selected.
+     In this case, **XC-DSC(v3.20)** is selected.
      - After selecting Hardware Tool and Compiler Toolchain, Device Pack, click the button **Apply**
 
      Please ensure that the selected MPLAB® XC-DSC Compiler and Device Pack support the device configured in the firmware
@@ -169,7 +176,7 @@ Follow the below instructions, step by step, to set up and run the motor control
     <p align="left">
      <img  src="images/led.png" width="300"></p>
 
-8. Run or stop the motor by pressing the push button **BUTTON 1**. The motor should start spinning smoothly in one direction. Ensure the motor is spinning smoothly without any vibration. The **LED2(D16)** is turned **ON** to show the button is pressed to start the motor.
+8. Run or stop the motor by pressing the push button **BUTTON 1**. The motor should start spinning smoothly in one direction. Ensure the motor is spinning smoothly without any vibration. The **LED2(D16)** is turned **ON** to show the button is pressed to start the motor. This specific motor (Leadshine EL5-M0400-1-24) was tested under no load conditions. To achieve optimal performance under loaded conditions, the control parameters in the firmware may need additional tuning.
      <p align="left">
      <img  src="images/pushbutton.JPG" width="600"></p>
  
@@ -249,7 +256,7 @@ To view data plots continuously, uncheck **Single-shot.** When **Single-shot** i
 For additional information, refer following documents or links.
 1. AN1292 Application Note “[Sensorless Field Oriented Control (FOC) for a Permanent Magnet Synchronous Motor (PMSM) Using a PLL Estimator and Field Weakening (FW)](https://ww1.microchip.com/downloads/aemDocuments/documents/OTH/ApplicationNotes/ApplicationNotes/01292A.pdf)”
 2. AN1299 Application Note “[Single-Shunt Three-Phase Current Reconstruction Algorithm for Sensorless FOC of a PMSM](http://ww1.microchip.com/downloads/en/appnotes/01299a.pdf)”
-3. MCHV-230VAC-1.5kW Development Board User’s Guide [(DS70005576)]
+3. Motor Control High Voltage 230VAC-1.5kW Development Board User’s Guide [(DS70005576)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/UserGuides/Motor-Control-High-Voltage-230VAC-1.5kW-Dev-Board-Users-Guide-DS70005576.pdf)
 4. dsPIC33CK256MP508 Motor Control Dual In-Line Module (DIM) Information Sheet [(DS50003063)](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU16/ProductDocuments/InformationSheet/dsPIC33CK256MP508-Motor-Control-Dual-In-Line-Module-%28DIM%29-Information-Sheet-DS50003063.pdf)
 5. dsPIC33CK256MP508 Family datasheet [(DS70005349)](https://ww1.microchip.com/downloads/en/DeviceDoc/dsPIC33CK256MP508-Family-Data-Sheet-DS70005349H.pdf)
 6. MPLAB® X IDE User’s Guide [(DS50002027)](https://ww1.microchip.com/downloads/en/DeviceDoc/50002027E.pdf) or [MPLAB® X IDE help](https://microchipdeveloper.com/xwiki/bin/view/software-tools/x/)
