@@ -151,7 +151,7 @@ controllers, tuning mode will disable the speed PI controller */
 #define KFILTER_ESDQ 1200
 /* BEMF filter for d-q components @ high speed - Flux Weakening case */
 #define KFILTER_ESDQ_FW 164
-/* Estimated speed filter constatn */
+/* Estimated speed filter constant */
 #define KFILTER_VELESTIM 2*374
 
 
@@ -174,9 +174,6 @@ controllers, tuning mode will disable the speed PI controller */
 before the open loop speed ramp up */
 /* This number is: 20,000 is 1 second. */
 #define LOCK_TIME 8000 
-/* Modulation Index for d-axis voltage during locking, q-axis voltage is zero
- The value 1300 as Vd reference is giving around 500mA locking current*/
-#define VDREF_LOCK   1300
 /* Open loop speed ramp up end value Value in RPM*/
 #define END_SPEED_RPM 700 
 /* Open loop acceleration */

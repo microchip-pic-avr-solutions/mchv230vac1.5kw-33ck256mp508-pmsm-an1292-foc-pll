@@ -700,16 +700,8 @@ void CalculateParkAngle(void)
         if (motorStartUpData.startupLock < LOCK_TIME)
         {
             thetaElectricalOpenLoop = 0;
-            vdq.q = 0;
-            vdq.d = VDREF_LOCK;
             
             motorStartUpData.startupLock += 1;
-            
-            /*Reset the Current controllers which were executed during Locking*/
-            piInputIq.piState.integrator = 0;
-            piOutputIq.out = 0;
-            piInputId.piState.integrator = 0;
-            piOutputId.out = 0;
         }
         /* Then ramp up till the end speed */
         else if (motorStartUpData.startupRamp < END_SPEED)
