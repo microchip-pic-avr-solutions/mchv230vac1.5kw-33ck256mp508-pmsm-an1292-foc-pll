@@ -34,15 +34,16 @@
             "versionRange":"*"
          }
       },
-	  "peripherals":[
-         "ADC",
-		 "PWM"
-      ],
       "keywords":[
+         "ADC",
+         "PWM",
+         "OPAMP",
          "Motor Control",
          "PMSM",
          "Sensorless Control",
+		 "PLL Estimator",
          "FOC",
+		 "Field Weakening",
          "dsPIC"
       ]
    }
