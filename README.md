@@ -65,8 +65,8 @@ Refer ["Motor Control High Voltage 230VAC-1.5kW Development Board User's Guide"]
 
 5. Power the development board from a controlled AC source by applying voltage of 220V<sub>ac rms</sub> through IEC connector **connector J1** provided on the PFC board.
 
-      <p align="left">
-      <img  src="images/mchvpower.JPG" width="600"></p>
+     <p align="left" >
+      <img  src="images/mchvPower.JPG" width="600"/></p>
  
      > **Note:** </br>
      >The Development Board is designed to operate in the 90 to 230V<sub>ac rms</sub> voltage range with a maximum input current of 10A<sub>rms</sub>. In the Input AC voltage range of 90 to 150V<sub>ac rms</sub>, the maximum input power to the Development Board must be derated (<1500W) to maintain the input current through the socket to less than or equal to 10A<sub>rms</sub>.
